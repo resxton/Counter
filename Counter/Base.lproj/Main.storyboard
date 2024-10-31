@@ -24,28 +24,28 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4y1-sE-cOe" userLabel="Minus Button">
-                                <rect key="frame" x="97" y="494" width="34" height="35"/>
+                                <rect key="frame" x="91" y="494" width="47" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="–"/>
+                                <buttonConfiguration key="configuration" style="filled" image="minus" catalog="system"/>
                                 <connections>
                                     <action selector="minusTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="AsP-hb-z7h"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="atR-Nl-xs9" userLabel="C Button">
-                                <rect key="frame" x="178" y="494" width="36" height="35"/>
+                                <rect key="frame" x="172" y="495" width="50" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="C"/>
+                                <buttonConfiguration key="configuration" style="filled" image="arrow.trianglehead.counterclockwise.rotate.90" catalog="system"/>
                                 <connections>
                                     <action selector="clearTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yjw-6i-Km8"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tvu-Sy-OYl">
-                                <rect key="frame" x="261" y="494" width="35" height="35"/>
+                                <rect key="frame" x="256" y="495" width="47" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="+"/>
+                                <buttonConfiguration key="configuration" style="filled" image="plus" catalog="system"/>
                                 <connections>
                                     <action selector="plusTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="S4a-gq-HPK"/>
                                 </connections>
@@ -76,6 +76,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.trianglehead.counterclockwise.rotate.90" catalog="system" width="128" height="119"/>
+        <image name="minus" catalog="system" width="128" height="26"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

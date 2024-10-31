@@ -29,8 +29,8 @@ class ViewController: UIViewController {
     
     
     func buttonSetup() {
-        minusButton.tintColor = .systemRed
-        plusButton.tintColor = .systemGreen
+        minusButton.tintColor = .systemBlue
+        plusButton.tintColor = .systemRed
         clearButton.tintColor = .systemGray
     }
     
