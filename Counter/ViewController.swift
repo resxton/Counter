@@ -14,9 +14,9 @@ final class ViewController: UIViewController {
     @IBOutlet private weak var clearButton: UIButton!
     @IBOutlet private weak var historyTextView: UITextView!
     
-    let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
-    let impactMedium = UIImpactFeedbackGenerator(style: .medium)
-    let impactSoft = UIImpactFeedbackGenerator(style: .soft)
+    private let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
+    private let impactMedium = UIImpactFeedbackGenerator(style: .medium)
+    private let impactSoft = UIImpactFeedbackGenerator(style: .soft)
     
     private var currentCounterValue = 0 {
         didSet {
