@@ -7,16 +7,20 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-    @IBOutlet weak var Counter: UILabel!
-    @IBOutlet weak var minusButton: UIButton!
-    @IBOutlet weak var plusButton: UIButton!
-    @IBOutlet weak var clearButton: UIButton!
-    @IBOutlet weak var historyTextView: UITextView!
+final class ViewController: UIViewController {
+    @IBOutlet private weak var counter: UILabel!
+    @IBOutlet private weak var minusButton: UIButton!
+    @IBOutlet private weak var plusButton: UIButton!
+    @IBOutlet private weak var clearButton: UIButton!
+    @IBOutlet private weak var historyTextView: UITextView!
     
-    var currentCounterValue = 0 {
+    let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
+    let impactMedium = UIImpactFeedbackGenerator(style: .medium)
+    let impactSoft = UIImpactFeedbackGenerator(style: .soft)
+    
+    private var currentCounterValue = 0 {
         didSet {
-            Counter.text = String(currentCounterValue)
+            counter.text = String(currentCounterValue)
         }
     }
     
@@ -28,19 +32,19 @@ class ViewController: UIViewController {
     }
     
     
-    func buttonSetup() {
+    private func buttonSetup() {
         minusButton.tintColor = .systemBlue
         plusButton.tintColor = .systemRed
         clearButton.tintColor = .systemGray
     }
     
     
-    func textViewSetup() {
+    private func textViewSetup() {
         historyTextView.text.append("История изменений\n")
     }
     
     
-    func createLog(situation: String) {
+    private func createLog(situation: String) {
         var log = ""
         
         switch situation {
@@ -64,24 +68,27 @@ class ViewController: UIViewController {
     }
     
     
-    @IBAction func minusTapped() {
+    @IBAction private func minusTapped() {
         if currentCounterValue > 0 {
             currentCounterValue -= 1
             createLog(situation: "minus_success")
+            impactSoft.impactOccurred()
         } else {
             createLog(situation: "minus_fault")
+            impactMedium.impactOccurred()
         }
     }
     
     
-    @IBAction func plusTapped() {
+    @IBAction private func plusTapped() {
+        impactSoft.impactOccurred()
         currentCounterValue += 1
         createLog(situation: "plus")
     }
     
     
-    
-    @IBAction func clearTapped() {
+    @IBAction private func clearTapped() {
+        impactHeavy.impactOccurred()
         currentCounterValue = 0
         createLog(situation: "clear")
     }
