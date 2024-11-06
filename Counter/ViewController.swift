@@ -18,9 +18,10 @@ final class ViewController: UIViewController {
     private let impactMedium = UIImpactFeedbackGenerator(style: .medium)
     private let impactSoft = UIImpactFeedbackGenerator(style: .soft)
     
-    private var currentCounterValue = 0 {
+    private var currentCounterValue = UserDefaults.standard.integer(forKey: "counter") {
         didSet {
             counter.text = String(currentCounterValue)
+            UserDefaults.standard.set(currentCounterValue, forKey: "counter")
         }
     }
     
@@ -29,6 +30,7 @@ final class ViewController: UIViewController {
         super.viewDidLoad()
         buttonSetup()
         textViewSetup()
+        counter.text = String(currentCounterValue)
     }
     
     
@@ -40,7 +42,10 @@ final class ViewController: UIViewController {
     
     
     private func textViewSetup() {
-        historyTextView.text.append("История изменений\n")
+        historyTextView.text = UserDefaults.standard.string(forKey: "history")
+        if historyTextView.text.isEmpty {
+            historyTextView.text.append("История изменений\n")
+        }
     }
     
     
@@ -61,6 +66,7 @@ final class ViewController: UIViewController {
         }
         
         historyTextView.text.append(log)
+        UserDefaults.standard.set(historyTextView.text, forKey: "history")
         
         // Автоскролл historyTextView
         let lastLineRange = NSRange(location: historyTextView.text.count - 1, length: 1)
