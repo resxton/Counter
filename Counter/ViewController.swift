@@ -18,7 +18,7 @@ final class ViewController: UIViewController {
     private let impactMedium = UIImpactFeedbackGenerator(style: .medium)
     private let impactSoft = UIImpactFeedbackGenerator(style: .soft)
     
-    private var currentCounterValue = UserDefaults.standard.integer(forKey: "counter") {
+    private var currentCounterValue = 0 {
         didSet {
             counter.text = String(currentCounterValue)
             UserDefaults.standard.set(currentCounterValue, forKey: "counter")
@@ -30,7 +30,7 @@ final class ViewController: UIViewController {
         super.viewDidLoad()
         buttonSetup()
         textViewSetup()
-        counter.text = String(currentCounterValue)
+        currentCounterValue = UserDefaults.standard.integer(forKey: "counter")
     }
     
     
